@@ -36,23 +36,6 @@ class APIFeatures {
         return this
     }
 
-    /*async paginate() {
-        const page = this.queryString.page * 1 || 1;
-        const limit = this.queryString.limit * 1 || 10;
-        const skip = (page - 1) * limit;
-        this.query = this.query.skip(skip).limit(limit);
-        if (this.queryString.page) {
-            try {
-                const numberOfPlayers = await this.query.model.countDocuments();
-                if (skip >= numberOfPlayers) {
-                    throw new Error('This page does not exist');
-                }
-            } catch (error) {
-                throw new Error(error.message);
-            }
-        }
-        return this;
-    }*/
     paginate() {
         const page = this.queryString.page * 1 || 1;
         const limit = this.queryString.limit * 1 || 10;

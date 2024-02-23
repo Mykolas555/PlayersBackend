@@ -4,13 +4,13 @@ const playerController = require("../controllers/playerController")
 const authController = require('../controllers/authController')
 
 router.route("/top-10-players")
-.get(playerController.aliasTopPlayers, playerController.getAllPlayers)
+.get(authController.protect,playerController.aliasTopPlayers, playerController.getAllPlayers)
 
 router.route("/Youngest-Players")
-.get(playerController.aliasTopYoungestPlayers, playerController.getAllPlayers)
+.get(authController.protect,playerController.aliasTopYoungestPlayers, playerController.getAllPlayers)
 
 router.route("/teamPlayers/:team")
-.get(playerController.aliasTeam, playerController.getAllPlayers)
+.get(authController.protect,playerController.aliasTeam, playerController.getAllPlayers)
 
 router.route("/")
 .get(authController.protect, playerController.getAllPlayers)
